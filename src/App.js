@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Comment from './components/comment';
+import CurrentUser from './components/currentUser';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function App() {
+  const { data } = useSelector(store => store.generalData)
+
+  // setting every change in the database
+  useEffect (() => {
+    localStorage.setItem('dataBase', JSON.stringify(data))
+  },
+  [ data ]
+  )
+  
+  console.log()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='all-comments'>
+        { data.comments.map( comment => (
+          <Comment 
+            key={comment.id}
+            currentUser = {data.currentUser}
+            comments = {comment}
+          />
+        ))}
+      </div>
+      
+      <div>
+        <CurrentUser currentUser={data.currentUser}/>
+      </div>
     </div>
   );
 }

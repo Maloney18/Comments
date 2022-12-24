@@ -1,0 +1,133 @@
+
+.any-reply {
+    background-color: var(--Very-light-gray);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-self: flex-end;
+    width: 95%;
+}
+
+.reply-to {
+    font-weight: 700;
+    color: var(--Moderate-blue);
+}
+
+.verif-user {
+    gap: 5px;
+}
+
+.you {
+    justify-content: center;
+    background-color: var(--Moderate-blue);
+    font-weight: 700;
+    color: var(--White);   
+    width: 35px;
+    height: 21px;
+    border-radius: 2px;
+}
+
+.both {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.icon-cont {
+    gap: 10px;
+}
+
+.del-icon {
+    font-weight: 700;
+    gap: 5px;
+    color: var(--Soft-Red);
+}
+
+.edit-icon {
+    font-weight: 700;
+    gap: 5px;
+    color: var(--Moderate-blue);
+    transition: all 0.3s linear;
+}
+
+.del-icon:hover, .edit-icon:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.delete-bar-cont {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    background-color: hsla(212, 24%, 26%, 0.363);
+    top: 0;
+    left: 0;
+}
+
+.delete-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    max-width: 300px;
+    background-color: var(--Very-light-gray);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.btn-cont {
+    gap: 15px;
+    justify-content: center;
+}
+
+.second-btn {
+    border-radius: 5px;
+    padding: 12px;
+    outline: none;
+    border: 1px solid transparent;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--Very-light-gray);
+    transition: all 0.3s linear;
+}
+
+.second-btn:hover, .second-btn:focus {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.del {
+    font-size: 16px;
+}
+
+.del-btn {
+    background-color: var(--Soft-Red);
+}
+
+.canc-btn {
+    background-color: var(--Dark-blue);
+}
+
+
+
+@media screen and (min-width: 580px) {
+    .any-reply {
+        flex-direction: row-reverse;
+        position: relative;
+        gap: 20px;
+    }
+
+    .icon-cont {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+    }
+}

@@ -1,0 +1,137 @@
+.both {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.anyone {
+    background-color: var(--Very-light-gray);
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+}
+
+.upper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.upper-word {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.img-cont {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.img-cont img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.username {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--Dark-blue);
+}
+
+.time, .word {
+    color: var(--Grayish-Blue);
+    font-size: 14px;
+}
+
+.lower {
+    display: flex;
+    justify-content: space-between;
+}
+
+.score {
+    display: flex;
+    gap: 10px;
+    background-color: var(--Light-gray);
+    border-radius: 10px;
+    align-items: center;
+    width: 80px;
+    height: 35px;
+    justify-content: center;
+}
+
+.number {
+    color: var(--Moderate-blue);
+    font-weight: 700;
+    cursor: default;
+}
+
+.dec, .inc {
+    display: flex;
+    fill: #C5C6EF;
+    transition: all 0.3s linear;
+}
+
+.inc:hover svg, .inc:focus svg, .dec:hover svg, .dec:focus svg {
+    fill: var(--Moderate-blue);
+    cursor: pointer;
+}
+
+.reply {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    transition: all 0.3s linear;
+}
+
+.reply:hover, .reply:focus {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.rep {
+    font-weight: 700;
+    color: var(--Moderate-blue);
+}
+
+.reply-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-left: 1px solid var(--Light-grayish-blue);
+}
+
+@media screen and (min-width: 580px) {
+    .anyone {
+        flex-direction: row-reverse;
+        position: relative;
+        gap: 20px;
+    }
+
+    .upper-word {
+        width: 90%;
+    }
+
+    .reply {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+    }
+
+    .score {
+        width: 37px;
+        height: 75px;
+        flex-direction: column;
+    }
+
+    .reply-cont {
+        width: 95%;
+        align-self: flex-end;
+    }
+}
