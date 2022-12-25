@@ -62,6 +62,7 @@ const initialState = {
                 "score": 2,
                 "open": false,
                 "deleteTog": false,
+                "edit": false,
                 "replyingTo": "ramsesmiron",
                 "user": {
                   "image": { 
@@ -129,13 +130,23 @@ const general = createSlice({
 
     toggleComDelBar: (state, action) => {
       state.data.comments = state.data.comments.map(comment => comment.id === action.payload ? {...comment, deleteTog: !comment.deleteTog} : {...comment})
+    },
+
+    toggleEditBar: (state, action) => {
+      state.data.comments =  state.data.comments.map(comment => comment.id === action.payload ? {...comment, edit: !comment.edit} : {...comment})
+      state.data.comments.map(comment => comment.replies = comment.replies.map(rep => rep.id === action.payload ? {...rep, edit: !rep.edit} : {...rep}))
+    },
+
+    updateCommentAndReply: (state, action) => {
+      state.data.comments = state.data.comments.map(comment => comment.id === action.payload.id ? {...comment, content: action.payload.content} : {...comment})
+      state.data.comments.map(comment => comment.replies = comment.replies.map(rep => rep.id === action.payload.id ? {...rep, content: action.payload.content} : {...rep}))
     }
   }
 })
 
 
 export default general.reducer;
-export const { addComment, addReplies, deleteComment, deleteReply, incCommScore, incReplyScore, decCommScore, decReplyScore, toggleCommRepBar, toggleReplyBar, toggleDeleteBar, toggleComDelBar } = general.actions
+export const { addComment, addReplies, deleteComment, deleteReply, incCommScore, incReplyScore, decCommScore, decReplyScore, toggleCommRepBar, toggleReplyBar, toggleDeleteBar, toggleComDelBar, toggleEditBar, updateCommentAndReply } = general.actions
 
 
 

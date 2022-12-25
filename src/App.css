@@ -37,6 +37,42 @@
     gap: 10px;
 }
 
+.update {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 150px;
+}
+
+.update-cont {
+    height: 60%;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid var(--Light-gray);
+    padding: 15px;
+    font-size: 14px;
+}
+
+.update-btn {
+    width: 75px;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: var(--Moderate-blue);
+    color: var(--Very-light-gray);
+    font-weight: 700;
+    font-size: 12px;
+    transition: all 0.3s linear;
+    align-self: flex-end;
+}
+
+.update-btn:hover, .update-btn:focus {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+
 @media screen and (min-width: 600px) {
     .App {
         width: 80%;
@@ -46,7 +82,6 @@
 @media screen and (min-width: 800px) {
     .App {
         width: 61%;
-        height: 100vh;
     }
 }
 

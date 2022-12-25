@@ -1,6 +1,6 @@
 import { useState } from "react"
 import './currentUser.css'
-import { addReplies, toggleCommRepBar, toggleDeleteBar, toggleReplyBar } from "../dataBase/Features/generalData"
+import { addReplies, toggleReplyBar } from "../dataBase/Features/generalData"
 import { useDispatch, useSelector } from "react-redux"
 import { nanoid } from "nanoid"
 
@@ -18,6 +18,7 @@ const Replyreply = ( props ) => {
         "score": 0,
         "open": false,
         "deleteTog": false,
+        "edit": false,
         "user": {
             "image": { 
                 "png": "images/avatars/image-juliusomo.png",

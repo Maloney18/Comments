@@ -70,6 +70,7 @@
     background-color: hsla(212, 24%, 26%, 0.363);
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
 .delete-bar {
@@ -114,6 +115,11 @@
 
 .canc-btn {
     background-color: var(--Dark-blue);
+}
+
+.add-comment {
+    align-self: flex-end;   
+    width: 95%;
 }
 
 

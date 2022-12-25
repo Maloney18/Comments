@@ -17,6 +17,7 @@ const AddReplies = ( props ) => {
         "score": 0,
         "open": false,
         "deleteTog": false,
+        "edit": false,
         "user": {
             "image": { 
                 "png": "images/avatars/image-juliusomo.png",
