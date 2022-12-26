@@ -1,4 +1,4 @@
-import AddReplies from "./addReply"
+import Replyreply from './replyReply'
 import './replies.css'
 import { useDispatch, useSelector } from "react-redux"
 import { decReplyScore, deleteReply, incReplyScore, toggleDeleteBar, toggleReplyBar } from "../dataBase/Features/generalData"
@@ -83,7 +83,7 @@ const Reply = (props) => {
                 </div>
                 { open && 
                     <div className="add-comment">
-                        <AddReplies currentUser={props} />
+                        <Replyreply currentUser={props} />
                     </div>
                 }
             </div>

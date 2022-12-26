@@ -125,13 +125,17 @@ const general = createSlice({
 
     toggleDeleteBar: (state, action) => {
       state.data.comments.map(comment => comment.replies = comment.replies.map(rep => rep.id === action.payload ? {...rep, deleteTog: !rep.deleteTog} : {...rep}))
+    },
+
+    toggleComDelBar: (state, action) => {
+      state.data.comments = state.data.comments.map(comment => comment.id === action.payload ? {...comment, deleteTog: !comment.deleteTog} : {...comment})
     }
   }
 })
 
 
 export default general.reducer;
-export const { addComment, addReplies, deleteComment, deleteReply, incCommScore, incReplyScore, decCommScore, decReplyScore, toggleCommRepBar, toggleReplyBar, toggleDeleteBar } = general.actions
+export const { addComment, addReplies, deleteComment, deleteReply, incCommScore, incReplyScore, decCommScore, decReplyScore, toggleCommRepBar, toggleReplyBar, toggleDeleteBar, toggleComDelBar } = general.actions
 
 
 
