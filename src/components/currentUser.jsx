@@ -4,6 +4,7 @@ import data from "../data"
 import './currentUser.css'
 import { addComment } from "../dataBase/Features/generalData"
 import { useDispatch } from "react-redux"
+import moment from "moment/moment"
 
 const CurrentUser = ( props ) => {
     const dispatch = useDispatch()
@@ -11,7 +12,7 @@ const CurrentUser = ( props ) => {
     const [newComm, setNewComm] = useState({
         "id": nanoid(),
         "content": "",
-        "createdAt": new Date().getSeconds(),
+        "createdAt": 'now',
         "score": 0,
         "open": false,
         "deleteTog": false,
@@ -22,7 +23,8 @@ const CurrentUser = ( props ) => {
             },
             "username": "juliusomo"
         },
-        "replies": []
+        "replies": [],
+        "timeOfPost": moment()
     })
 
     const write = (e) => {

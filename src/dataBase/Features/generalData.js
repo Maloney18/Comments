@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import moment from "moment/moment";
 
 const initialState = {
     data: JSON.parse(localStorage.getItem("dataBase")) || 
@@ -24,7 +25,8 @@ const initialState = {
               },
               "username": "amyrobson"
             },
-            "replies": []
+            "replies": [],
+            "timeOfPost": moment()
           },
           {
             "id": 2,
@@ -53,7 +55,8 @@ const initialState = {
                     "webp": "images/avatars/image-ramsesmiron.webp"
                   },
                   "username": "ramsesmiron"
-                }
+                },
+                "timeOfPost": moment()
               },
               {
                 "id": 4,
@@ -70,9 +73,11 @@ const initialState = {
                     "webp": "images/avatars/image-juliusomo.webp"
                   },
                   "username": "juliusomo"
-                }
+                },
+                "timeOfPost": moment()
               }
-            ]
+            ],
+            "timeOfPost": moment()
           }
         ]
     }
@@ -140,13 +145,18 @@ const general = createSlice({
     updateCommentAndReply: (state, action) => {
       state.data.comments = state.data.comments.map(comment => comment.id === action.payload.id ? {...comment, content: action.payload.content} : {...comment})
       state.data.comments.map(comment => comment.replies = comment.replies.map(rep => rep.id === action.payload.id ? {...rep, content: action.payload.content} : {...rep}))
+    },
+
+    updateAllTime: (state) => {
+      state.data.comments = state.data.comments.map(comment => ({...comment, createdAt: moment().from(comment.timeOfPost)}))
+      state.data.comments.map(comment => comment.replies = comment.replies?.map(rep => ({...rep, createdAt: moment().from(rep.timeOfPost)})))
     }
   }
 })
 
 
 export default general.reducer;
-export const { addComment, addReplies, deleteComment, deleteReply, incCommScore, incReplyScore, decCommScore, decReplyScore, toggleCommRepBar, toggleReplyBar, toggleDeleteBar, toggleComDelBar, toggleEditBar, updateCommentAndReply } = general.actions
+export const { addComment, addReplies, deleteComment, deleteReply, incCommScore, incReplyScore, decCommScore, decReplyScore, toggleCommRepBar, toggleReplyBar, toggleDeleteBar, toggleComDelBar, toggleEditBar, updateCommentAndReply, updateAllTime } = general.actions
 
 
 

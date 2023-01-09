@@ -1,19 +1,22 @@
-import { useState } from "react"
 import './currentUser.css'
 import { addReplies, toggleReplyBar } from "../dataBase/Features/generalData"
 import { useDispatch, useSelector } from "react-redux"
+import { useState } from 'react'
 import { nanoid } from "nanoid"
+import moment from "moment/moment"
 
 const Replyreply = ( props ) => {
-    console.log(props)
     const dispatch = useDispatch()
     const { data } = useSelector(store => store.generalData)
     const { user, id, replyingTo } = props?.currentUser?.replies
 
+    // const [dTime, setDTime] = useState('')
+    // const [timeOfPost, setTimeOfPost] = useState('')
+    // const [started, setStarted] = useState(false)
     const [newRep, setNewRep] = useState({
         "id": nanoid(),
         "content": `@${user.username}`,
-        "createdAt": new Date().getSeconds(),
+        "createdAt": 'now',
         "replyingTo": replyingTo,
         "score": 0,
         "open": false,
@@ -25,7 +28,8 @@ const Replyreply = ( props ) => {
                 "webp": "images/avatars/image-juliusomo.webp"
             },
             "username": "juliusomo"
-        }
+        },
+        "timeOfPost": moment()
     })
 
     const write = (e) => {
@@ -34,14 +38,23 @@ const Replyreply = ( props ) => {
     }
 
     const checkSend = () => {
-        if (newRep?.content !== `@${user.username}`) {
+        if (newRep?.content.length > user.username.length) {
             dispatch(toggleReplyBar(id))
             dispatch(addReplies(newRep))
             setNewRep(prevState => ({...prevState, content:`@${user.username} `}))
         }
     }
 
-    
+    // setTimeout(() => {
+    //     if (started) {
+    //         setTimeOfPost(dTime.fromNow())
+    //         console.log(timeOfPost)
+    //     }
+
+    //     console.log(dTime, timeOfPost)
+    //     console.log(started)
+    // }, 1000)
+            
 
     return (
         <div className="current-user">

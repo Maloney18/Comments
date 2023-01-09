@@ -3,6 +3,7 @@ import './currentUser.css'
 import { addReplies, toggleCommRepBar } from "../dataBase/Features/generalData"
 import { useDispatch } from "react-redux"
 import { nanoid } from "nanoid"
+import moment from "moment/moment"
 
 const AddReplies = ( props ) => {
     const dispatch = useDispatch()
@@ -12,7 +13,7 @@ const AddReplies = ( props ) => {
     const [newRep, setNewRep] = useState({
         "id": nanoid(),
         "content": `@${user.username}`,
-        "createdAt": new Date().getSeconds(),
+        "createdAt": 'now',
         "replyingTo": user.username,
         "score": 0,
         "open": false,
@@ -24,7 +25,8 @@ const AddReplies = ( props ) => {
                 "webp": "images/avatars/image-juliusomo.webp"
             },
             "username": "juliusomo"
-        }
+        },
+        "timeOfPost": moment()
     })
 
     const write = (e) => {
