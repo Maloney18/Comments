@@ -15,7 +15,6 @@ function App() {
 
     setTimeout(() => {
       dispatch(updateAllTime())
-      console.log('did this')
     }, 60000)
   },
   [ data ]
