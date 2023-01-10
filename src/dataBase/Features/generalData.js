@@ -26,7 +26,7 @@ const initialState = {
               "username": "amyrobson"
             },
             "replies": [],
-            "timeOfPost": moment()
+            "timeOfPost": moment().subtract(1, 'month')
           },
           {
             "id": 2,
@@ -56,7 +56,7 @@ const initialState = {
                   },
                   "username": "ramsesmiron"
                 },
-                "timeOfPost": moment()
+                "timeOfPost": moment().subtract(1, 'week')
               },
               {
                 "id": 4,
@@ -74,10 +74,10 @@ const initialState = {
                   },
                   "username": "juliusomo"
                 },
-                "timeOfPost": moment()
+                "timeOfPost": moment().subtract(2, 'days')
               }
             ],
-            "timeOfPost": moment()
+            "timeOfPost": moment().subtract(2, 'weeks')
           }
         ]
     }
@@ -148,8 +148,8 @@ const general = createSlice({
     },
 
     updateAllTime: (state) => {
-      state.data.comments = state.data.comments.map(comment => ({...comment, createdAt: moment().from(comment.timeOfPost)}))
-      state.data.comments.map(comment => comment.replies = comment.replies?.map(rep => ({...rep, createdAt: moment().from(rep.timeOfPost)})))
+      state.data.comments = state.data.comments.map(comment => ({...comment, createdAt: moment(comment.timeOfPost).fromNow()}))
+      state.data.comments.map(comment => comment.replies = comment.replies?.map(rep => ({...rep, createdAt: moment(rep.timeOfPost).fromNow()})))
     }
   }
 })
