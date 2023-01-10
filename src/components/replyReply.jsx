@@ -10,9 +10,6 @@ const Replyreply = ( props ) => {
     const { data } = useSelector(store => store.generalData)
     const { user, id, replyingTo } = props?.currentUser?.replies
 
-    // const [dTime, setDTime] = useState('')
-    // const [timeOfPost, setTimeOfPost] = useState('')
-    // const [started, setStarted] = useState(false)
     const [newRep, setNewRep] = useState({
         "id": nanoid(),
         "content": `@${user.username}`,
@@ -44,16 +41,6 @@ const Replyreply = ( props ) => {
             setNewRep(prevState => ({...prevState, content:`@${user.username} `}))
         }
     }
-
-    // setTimeout(() => {
-    //     if (started) {
-    //         setTimeOfPost(dTime.fromNow())
-    //         console.log(timeOfPost)
-    //     }
-
-    //     console.log(dTime, timeOfPost)
-    //     console.log(started)
-    // }, 1000)
             
 
     return (
