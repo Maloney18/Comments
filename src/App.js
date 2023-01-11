@@ -9,6 +9,10 @@ function App() {
   const dispatch = useDispatch()
   const { data } = useSelector(store => store.generalData)
 
+  useEffect ( () => {
+    dispatch(updateAllTime())
+  }, [])
+  
   // setting every change in the database
   useEffect (() => {
     localStorage.setItem('dataBase', JSON.stringify(data))
