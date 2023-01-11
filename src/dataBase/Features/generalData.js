@@ -17,6 +17,7 @@ const initialState = {
             "content": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
             "createdAt": "1 month ago",
             "score": 12,
+            "upvoted": false,
             "open": false,
             "user": {
               "image": { 
@@ -33,6 +34,7 @@ const initialState = {
             "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
             "createdAt": "2 weeks ago",
             "score": 5,
+            "upvoted": false,
             "open": false,
             "user": {
               "image": { 
@@ -47,6 +49,7 @@ const initialState = {
                 "content": "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
                 "createdAt": "1 week ago",
                 "score": 4,
+                "upvoted": false,
                 "open": false,
                 "replyingTo": "maxblagun",
                 "user": {
@@ -63,6 +66,7 @@ const initialState = {
                 "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
                 "createdAt": "2 days ago",
                 "score": 2,
+                "upvoted": false,
                 "open": false,
                 "deleteTog": false,
                 "edit": false,
@@ -142,6 +146,11 @@ const general = createSlice({
       state.data.comments.map(comment => comment.replies = comment.replies.map(rep => rep.id === action.payload ? {...rep, edit: !rep.edit} : {...rep}))
     },
 
+    toggleUpvote: (state, action) => {
+      state.data.comments = state.data.comments.map(comment => comment.id === action.payload ? {...comment, upvoted: !comment.upvoted} : {...comment})
+      state.data.comments.map(comment => comment.replies = comment.replies.map(rep => rep.id === action.payload ? {...rep, upvoted: !rep.upvoted} : {...rep}))
+    },
+
     updateCommentAndReply: (state, action) => {
       state.data.comments = state.data.comments.map(comment => comment.id === action.payload.id ? {...comment, content: action.payload.content} : {...comment})
       state.data.comments.map(comment => comment.replies = comment.replies.map(rep => rep.id === action.payload.id ? {...rep, content: action.payload.content} : {...rep}))
@@ -156,7 +165,7 @@ const general = createSlice({
 
 
 export default general.reducer;
-export const { addComment, addReplies, deleteComment, deleteReply, incCommScore, incReplyScore, decCommScore, decReplyScore, toggleCommRepBar, toggleReplyBar, toggleDeleteBar, toggleComDelBar, toggleEditBar, updateCommentAndReply, updateAllTime } = general.actions
+export const { addComment, addReplies, deleteComment, deleteReply, incCommScore, incReplyScore, decCommScore, decReplyScore, toggleCommRepBar, toggleReplyBar, toggleDeleteBar, toggleComDelBar, toggleEditBar, updateCommentAndReply, updateAllTime, toggleUpvote } = general.actions
 
 
 

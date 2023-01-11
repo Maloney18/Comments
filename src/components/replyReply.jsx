@@ -16,6 +16,7 @@ const Replyreply = ( props ) => {
         "createdAt": 'now',
         "replyingTo": replyingTo,
         "score": 0,
+        "upvoted": false,
         "open": false,
         "deleteTog": false,
         "edit": false,

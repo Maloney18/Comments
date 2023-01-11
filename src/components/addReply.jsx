@@ -16,6 +16,7 @@ const AddReplies = ( props ) => {
         "createdAt": 'now',
         "replyingTo": user.username,
         "score": 0,
+        "upvoted": false,
         "open": false,
         "deleteTog": false,
         "edit": false,

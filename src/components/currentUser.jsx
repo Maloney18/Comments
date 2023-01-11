@@ -14,6 +14,7 @@ const CurrentUser = ( props ) => {
         "content": "",
         "createdAt": 'now',
         "score": 0,
+        "upvoted": false,
         "open": false,
         "deleteTog": false,
         "user": {
