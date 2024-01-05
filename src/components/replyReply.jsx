@@ -30,9 +30,8 @@ const Replyreply = ( props ) => {
         "timeOfPost": moment()
     })
 
-    const write = (e) => {
-        const { name, value } = e.target
-        setNewRep(prevState => ({...prevState, [name]: value}))
+    const write = (value) => {
+        setNewRep(prevState => ({...prevState, replyingTo:value}))
     }
 
     const checkSend = () => {
