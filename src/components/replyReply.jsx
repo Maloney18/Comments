@@ -30,8 +30,9 @@ const Replyreply = ( props ) => {
         "timeOfPost": moment()
     })
 
-    const write = (value) => {
-        setNewRep(prevState => ({...prevState, content: value}))
+    const write = (e) => {
+        const {name, value} = e target
+        setNewRep(prevState => ({...prevState, [name]: value}))
     }
 
     const checkSend = () => {
@@ -59,7 +60,7 @@ const Replyreply = ( props ) => {
                 className="add-new" 
                 cols="30" 
                 rows="10"
-                onChange={(e) => write(e.target.value)}
+                onChange={(e) => write(e)}
                 value={newRep?.content}
                 placeholder='Add a comment...'
             ></textarea>
