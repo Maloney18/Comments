@@ -31,7 +31,7 @@ const Replyreply = ( props ) => {
     })
 
     const write = (value) => {
-        setNewRep(prevState => ({...prevState, replyingTo:value}))
+        setNewRep(prevState => ({...prevState, content: value}))
     }
 
     const checkSend = () => {
