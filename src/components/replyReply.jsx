@@ -59,7 +59,7 @@ const Replyreply = ( props ) => {
                 className="add-new" 
                 cols="30" 
                 rows="10"
-                onChange={(e) => write(e)}
+                onChange={(e) => write(e.target.value)}
                 value={newRep?.content}
                 placeholder='Add a comment...'
             ></textarea>
