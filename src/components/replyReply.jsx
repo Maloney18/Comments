@@ -31,7 +31,7 @@ const Replyreply = ( props ) => {
     })
 
     const write = (e) => {
-        const {name, value} = e target
+        const {name, value} = e.target;
         setNewRep(prevState => ({...prevState, [name]: value}))
     }
 
